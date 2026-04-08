@@ -46,7 +46,7 @@ public class Cidade {
             return "";
         }
         if (d.equals(Math.floor(d))) {
-            return String.format("%.0f", d);
+            return String.format("%.1f", d);
         } else {
             return d.toString();
         }
@@ -54,10 +54,11 @@ public class Cidade {
 
     @Override
     public String toString() {
-        String popStr = fmtDouble(popul);
         String latStr = fmtDouble(latitude);
         String lonStr = fmtDouble(longitude);
         String alfa2Up = (alfa2 == null) ? "" : alfa2.toUpperCase();
-        return nome + " | " + alfa2Up + " | " + regiao + " | " + popStr + " | (" + latStr + "," + lonStr + ")";
+        String populStr = (popul == null) ? "" : String.valueOf(popul.intValue());
+        String regiaoStr = (regiao == null) ? "" : regiao.toString();
+        return nome + " | " + alfa2Up + " | " + regiaoStr + " | " + populStr + " | (" + latStr + "," + lonStr + ")";
     }
 }
